@@ -43,15 +43,15 @@ const AddUser = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const url = "http://localhost:3003/users";
+  const url = "http://localhost:8000/users";
 
   const add = async (user) => {
-    await axios.post(url, user);
-    history.push("./all");
+    return await axios.post(`${url}/add`, user);
   };
 
   const addUserDetails = async () => {
     await add(user);
+    history.push("./all");
   };
 
   return (

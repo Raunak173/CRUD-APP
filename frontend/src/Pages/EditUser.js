@@ -39,7 +39,7 @@ const EditUser = () => {
   const { id } = useParams();
   let history = useHistory();
 
-  const url = "http://localhost:3003/users";
+  const url = "http://localhost:8000/users";
 
   const getUsers = async (id) => {
     return await axios.get(`${url}/${id}`);
