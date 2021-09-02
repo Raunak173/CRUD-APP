@@ -3,18 +3,19 @@ import mongoose from "mongoose";
 import route from "./server/route.js";
 import cors from "cors";
 import bodyParser from "body-parser";
+import dotenv from "dotenv";
 
 const app = express();
 
 const PORT = 8000;
+dotenv.config();
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/users", route);
 
-const URL =
-  "mongodb+srv://raunak173:raunak173@cluster0.nu1ri.mongodb.net/MERN-CRUD?retryWrites=true&w=majority";
+const URL = process.env.MONGOLAB_URI;
 
 mongoose
   .connect(URL, {
